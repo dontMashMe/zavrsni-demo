@@ -1,0 +1,151 @@
+{
+    "version": 1,
+    "action": "",
+    "key_set": "DESKTOP-PC52434_1629806758.48",
+    "status": "INIT",
+    "start": "2021-08-22 15:54:25",
+    "end": "2021-08-24 14:08:48",
+    "workers": [
+        {
+            "id": "",
+            "role": "production",
+            "db": {
+                "type": "",
+                "driver": "",
+                "host": "",
+                "port": "",
+                "db_name": "",
+                "user": "",
+                "password": ""
+            }
+        }
+    ],
+    "phases": [
+        {
+            "name": "check",
+            "start": "2021-08-22 15:54:25",
+            "end": "2021-08-24 14:08:48",
+            "status": "INIT",
+            "tasks": [
+                {
+                    "active": 1,
+                    "status": "SUCCESS",
+                    "start": "2021-08-24 14:05:59",
+                    "end": "2021-08-24 14:06:01",
+                    "id": "",
+                    "name": "Test SSH connection to remote server",
+                    "key_set": "",
+                    "module_name": "task_backup",
+                    "class_name": "TaskBackup",
+                    "code": "",
+                    "code_encryption": "none",
+                    "exec_type": "module",
+                    "run_as": "thread",
+                    "worker": "production",
+                    "args": {
+                        "action": "test_ssh_connection",
+                        "backup_type": "ssh",
+                        "remote_os_user": "",
+                        "remote_host": "",
+                        "remote_os_pass": "",
+                        "extend_info": 0,
+                        "db": {
+                            "type": "",
+                            "driver": "",
+                            "host": "",
+                            "port": "",
+                            "db_name": "",
+                            "user": "",
+                            "password": "",
+                            "statements": []
+                        },
+                        "dummy_sleep": {
+                            "min": 5,
+                            "max": 6
+                        }
+                    }
+                },
+                {
+                    "active": 1,
+                    "status": "SUCCESS",
+                    "start": "2021-08-24 14:06:05",
+                    "end": "2021-08-24 14:08:40",
+                    "id": "",
+                    "name": "Send file remotely",
+                    "key_set": "",
+                    "module_name": "task_backup",
+                    "class_name": "TaskBackup",
+                    "code": "",
+                    "code_encryption": "none",
+                    "exec_type": "module",
+                    "run_as": "thread",
+                    "worker": "production",
+                    "args": {
+                        "action": "send_file",
+                        "backup_type": "scp",
+                        "remote_os_user": "",
+                        "remote_host": "",
+                        "remote_os_pass": "",
+                        "file_to_send": "",
+                        "remote_location": "",
+                        "extend_info": 0,
+                        "db": {
+                            "type": "",
+                            "driver": "",
+                            "host": "",
+                            "port": "",
+                            "db_name": "",
+                            "user": "",
+                            "password": "",
+                            "statements": []
+                        },
+                        "dummy_sleep": {
+                            "min": 5,
+                            "max": 6
+                        }
+                    }
+                },
+                {
+                    "active": 1,
+                    "status": "INIT",
+                    "start": "2021-08-24 14:08:43",
+                    "end": "2021-08-24 14:08:46",
+                    "id": "",
+                    "name": "Check if file exists on remote server",
+                    "key_set": "",
+                    "module_name": "task_backup",
+                    "class_name": "TaskBackup",
+                    "code": "",
+                    "code_encryption": "none",
+                    "exec_type": "module",
+                    "run_as": "thread",
+                    "worker": "production",
+                    "args": {
+                        "action": "check_if_file_exists",
+                        "backup_type": "ssh",
+                        "remote_os_user": "",
+                        "remote_host": "",
+                        "remote_os_pass": "",
+                        "file_to_send": "",
+                        "remote_location": "",
+                        "extend_info": 0,
+                        "db": {
+                            "type": "",
+                            "driver": "",
+                            "host": "",
+                            "port": "",
+                            "db_name": "",
+                            "user": "",
+                            "password": "",
+                            "statements": []
+                        },
+                        "dummy_sleep": {
+                            "min": 5,
+                            "max": 6
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
